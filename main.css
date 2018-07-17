@@ -1,0 +1,29 @@
+.no-gutters{
+  padding: 0px 0px 0px 0px !important;
+}
+.skinny {
+  width: 8.33vw;
+  margin: 0% 0% 0% 0%;
+}
+.fixed {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: start;
+}
+.fixed img{
+  width: 8.33vw;
+}
+.fixed2 {
+  display: flex;
+
+  flex-flow: column wrap;
+  align-items: end;
+}
+.fixed2 img{
+  width: 8.33vw;
+}
+/*can use materialize, ML recommends bootstrap
+
+
+ grid span thing
+ */
