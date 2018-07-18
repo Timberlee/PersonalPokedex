@@ -22,6 +22,12 @@ function pokeInfo() {
 }
 //https://github.com/PokeAPI/pokeapi-js-wrapper#usage
 //var qq = rawData;
+
+
+
+
+
+
 function displayPokeInfo(){
 	  document.getElementById('receptacle').innerHTML = yxz.id[1];
 
