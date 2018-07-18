@@ -7,25 +7,38 @@ function battleScreen(){
 	x.style.backgroundcolor=('red');
 
 }
-
+var yxz ='';
 function pokeInfo() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-     //document.getElementById("receptacle").innerHTML = this.responseText;
-		 rawData = this.responseText;
+     // document.getElementById("receptacle").innerHTML = this.responseText;
+		 yxz = this.responseText;
 		}
   };
   //xhttp.open("GET", 'https://pokeapi.co/api/v2/pokemon/4/', true);
-		xhttp.open("GET", 'https://jsonplaceholder.typicode.com/comments', true);
+		xhttp.open("GET", 'https://jsonplaceholder.typicode.com/users', true);
 	 	xhttp.send();
 }
+//https://github.com/PokeAPI/pokeapi-js-wrapper#usage
+//var qq = rawData;
 function displayPokeInfo(){
-	  document.getElementById('receptacle').innerHTML = rawData;
+	  document.getElementById('receptacle').innerHTML = yxz.id[1];
+
 	}
 function clearPokeInfo(){
 	document.getElementById('receptacle').innerHTML = '';
 }
+/*Stringify
+var myObj = { "name":"John", "age":31, "city":"New York" };
+var myJSON = JSON.stringify(myObj);
+window.location = "demo_json.php?x=" + myJSON;
+*/
+/*Parse
+var myJSON = '{ "name":"John", "age":31, "city":"New York" }';
+var myObj = JSON.parse(myJSON);
+document.getElementById("demo").innerHTML = myObj.name;
+*/
 
 
 /*7/17/18 per ML: easier to call the api in its entirety, don't display it,
