@@ -7,34 +7,42 @@ function battleScreen(){
 	x.style.backgroundcolor=('red');
 
 }
-var yxz ='';
+var basket = '';
 function pokeInfo() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-     document.getElementById("receptacle").innerHTML = this.responseText;
-		 // yxz = this.responseText;
+
+		 basket = JSON.parse(this.responseText);
+		 // document.getElementById('receptacle').innerHTML = basket["name"] + basket["height"] + basket["stats"];
+		 document.getElementById("receptacle").innerHTML =
+		 basket.name + ' weight: ' + basket.weight + ' ' +
+		 basket.stats[0].stat.name + ': ' + basket.stats[0].base_stat + ' ';
+		 document.getElementById("pictureFrame").src = basket.sprites.front_shiny;
 		}
   };
+/* ***NOTE: IF THERE IS A NUMBER AS A KEY NAME, IT MAY ACTUALLY BE AN ARRAY INDEX OF THE KEY NAME THAT COMES BEFORE IT - PAY ATTENTION TO BRACKETS */
+/* button load info - after a delay, flash all the stats one by one*/
+
   //xhttp.open("GET", 'https://pokeapi.co/api/v2/pokemon/4/', true);
-		xhttp.open("GET", 'https://jsonplaceholder.typicode.com/users', true);
-		xhttp.open("GET", 'https://github.com/Timberlee/PersonalPokedex/blob/apiTest/apiInfo', true);
+		// xhttp.open("GET", 'https://jsonplaceholder.typicode.com/users', true);
+		// xhttp.open("GET", 'https://github.com/Timberlee/PersonalPokedex/blob/apiTest/apiInfo.json', true);
+		xhttp.open("GET", 'https://pokeapi-nycda.firebaseio.com/pokemon/4.json', true);
 	 	xhttp.send();
 }
 //https://github.com/PokeAPI/pokeapi-js-wrapper#usage
 //var qq = rawData;
 
-
-
-
-
-
 function displayPokeInfo(){
-	  document.getElementById('receptacle').innerHTML = yxz;
+
+
 
 	}
 function clearPokeInfo(){
 	document.getElementById('receptacle').innerHTML = '';
+}
+function pokeParse(){
+
 }
 /*Stringify
 var myObj = { "name":"John", "age":31, "city":"New York" };
