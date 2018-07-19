@@ -20,8 +20,15 @@
 }
 .grid-area {
   grid-area: 2/2/8/15;
+  background-image: url('images/tri');
+  opacity: 25%;
+  /* span or area the whole interior*/
+}
+.grid-area h1{
+  font-size: 150px;
 
-/* span or area the whole interior*/
+  color: red;
+  text-align: center;
 }
 
 
