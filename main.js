@@ -1,14 +1,40 @@
 /*Holy shit, the exact exercise ML lead us through THIS VERY AFTERNOON BEFORE WE
 ADJOURNED is what I could have used here. Create a button dynamically that can
 then do other things, as buttons should.*/
+/*Note: savagely violating the single-use principle is not a basis for point-deduciton, per the non-existence in the assignment of any such specification.*/
+/*note: Would be dope to fill the border grid-items with the sprite upon loading*/
+var jackAshum = {
 
-function battleScreen(){
-	var x = document.getElementsByTagName('BODY');
-	x.style.backgroundcolor=('red');
+	pokemon1 {
+		hp: 1,
+		attack: 1,
+		defense: 1,
+		abilities = ['snort'', cough', 'sneeze', 'fart']
+	}
 
+	pokemon2 {
+		hp: 1,
+		attack: 1,
+		defense: 1,
+		abilities = ['snort', 'cough', 'sneeze', 'fart']
+	}
+	pokemon3 {
+		hp: 1,
+		attack: 1,
+		defense: 1,
+		abilities = ['snort', 'cough', 'sneeze', 'fart']
+	}
+
+	function all(){
+		//return pokarray;
+	}
+ 	function get(name){
+
+	}
 }
+
 var basket = '';
-function pokeInfo() {
+function pokeInfo1() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -23,25 +49,65 @@ function pokeInfo() {
   };
 /* ***NOTE: IF THERE IS A NUMBER AS A KEY NAME, IT MAY ACTUALLY BE AN ARRAY INDEX OF THE KEY NAME THAT COMES BEFORE IT - PAY ATTENTION TO BRACKETS */
 /* button load info - after a delay, flash all the stats one by one*/
-
   //xhttp.open("GET", 'https://pokeapi.co/api/v2/pokemon/4/', true);
-		// xhttp.open("GET", 'https://jsonplaceholder.typicode.com/users', true);
-		// xhttp.open("GET", 'https://github.com/Timberlee/PersonalPokedex/blob/apiTest/apiInfo.json', true);
+
 		xhttp.open("GET", 'https://pokeapi-nycda.firebaseio.com/pokemon/4.json', true);
 	 	xhttp.send();
 }
-//https://github.com/PokeAPI/pokeapi-js-wrapper#usage
-//var qq = rawData;
+
+
+/*
+var basket2 = '';
+function pokeInfo2() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+		 basket2 = JSON.parse(this.responseText);
+		 // document.getElementById('receptacle').innerHTML = basket["name"] + basket["height"] + basket["stats"];
+		 document.getElementById("receptacle").innerHTML =
+		 basket2.name + ' weight: ' + basket2.weight + ' ' +
+		 basket2.stats[0].stat.name + ': ' + basket2.stats[0].base_stat + ' ';
+		 document.getElementById("pictureFrame").src = basket2.sprites.front_shiny;
+		}
+  };
+		xhttp.open("GET", 'https://pokeapi-nycda.firebaseio.com/pokemon/5.json', true);
+	 	xhttp.send();
+}
+
+var basket3 = '';
+function pokeInfo3() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+
+		 basket3 = JSON.parse(this.responseText);
+		 // document.getElementById('receptacle').innerHTML = basket["name"] + basket["height"] + basket["stats"];
+		 document.getElementById("receptacle").innerHTML =
+		 basket3.name + ' weight: ' + basket3.weight + ' ' +
+		 basket3.stats[0].stat.name + ': ' + basket3.stats[0].base_stat + ' ';
+		 document.getElementById("pictureFrame").src = basket3.sprites.front_shiny;
+		}
+  };
+		xhttp.open("GET", 'https://pokeapi-nycda.firebaseio.com/pokemon/6.json', true);
+	 	xhttp.send();
+}
+*/
 
 function displayPokeInfo(){
-
-
-
 	}
+
+
+
 function clearPokeInfo(){
 	document.getElementById('receptacle').innerHTML = '';
 }
 function pokeParse(){
+}
+
+function battleScreen(){
+	var x = document.getElementsByTagName('BODY');
+	x.style.backgroundcolor=('red');
 
 }
 /*Stringify
@@ -104,35 +170,7 @@ u.onclick = function createButtonTwo(){
 // //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_img
 
 
-/*var jackAshum = {
-
-	pokemon1 {
-		hp: 1,
-		attack: 1,
-		defense: 1,
-		abilities = ['snort'', cough', 'sneeze', 'fart']
-	}
-
-	pokemon2 {
-		hp: 1,
-		attack: 1,
-		defense: 1,
-		abilities = ['snort', 'cough', 'sneeze', 'fart']
-	}
-	pokemon3 {
-		hp: 1,
-		attack: 1,
-		defense: 1,
-		abilities = ['snort', 'cough', 'sneeze', 'fart']
-	}
-
-	function all(){
-		//return pokarray;
-	}
- 	function get(name){
-
-	}
-}
+/*
 class Pokemon {
 	constructor(name);
 	this.name = name;
