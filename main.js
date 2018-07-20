@@ -1,5 +1,5 @@
 jackAshum = {
-
+  myPokemon: {  },
    pokemon1: {
    name: 'pokename1',
    hp: 1,
@@ -23,11 +23,25 @@ jackAshum = {
  },
 
    all: function(){
-     var pokeArray = [this.pokemon1.name, this.pokemon2.name, this.pokemon3.name];
+     let pokeArray = [this.pokemon1.name, this.pokemon2.name, this.pokemon3.name];
      console.log(pokeArray);
    },
-   get: function(name){
-     console.log(jackAshum.name);
+
+   get: function(inputName){
+     let pokeArray= []
+     for (item in jackAshum){
+         pokeArray.push(item);
+       }
+       if (inputName === pokeArray[0].name){
+         console.log(pokeArray[0].name);
+       }else if (inputName === pokeArray[1].name){
+         console.log(pokeArray[1]);
+       }else if(inputName === pokeArray[2].name){
+         console.log(pokeArray[2]);
+       }else{
+         console.log('Pokemon not found.');
+       }
+
    }
    // function getEm(){
    //   var pokeArray = [];
@@ -37,50 +51,42 @@ jackAshum = {
    //   return pokeArray;
    //   console.log(pokeArray);
    // }
-  
 }
+
 //First Pokemon
 var pokeballOne = '';
-function pokeInfo1(){
+function retrievePokemon1(){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
 		 pokeballOne = JSON.parse(this.responseText);
 		 console.log(pokeballOne);
+     jackAshum.pokemon1.name = pokeballOne.name;
+     jackAshum.pokemon1.hp = pokeballOne.stats[5].base_stat;
+     jackAshum.pokemon1.attack = pokeballOne.stats[4].base_stat;
+     jackAshum.pokemon1.defense = pokeballOne.stats[3].base_stat;
+     jackAshum.pokemon1.abilities[0] = pokeballOne.abilities[0].ability.name;
+     jackAshum.pokemon1.abilities[1] = pokeballOne.abilities[1].ability.name;
+     jackAshum.pokemon1.sprite = pokeballOne.sprites.front_shiny;
+
 		 document.getElementById('displayArea').innerHTML = 'Pokemon: ' +
-		 pokeballOne.name + '<br> hp: ' + pokeballOne.stats[5].base_stat + '<br> attack: ' + pokeballOne.stats[4].base_stat + '<br> defense:' + pokeballOne.stats[3].base_stat + '<br> ability #1: ' +
-		 pokeballOne.abilities[0].ability.name + '<br> ability #2: ' + pokeballOne.abilities[1].ability.name + ' ';
-		 document.getElementById("spriteFrame").src=pokeballOne.sprites.front_shiny;
+		 jackAshum.pokemon1.name + '<br> hp: ' + jackAshum.pokemon1.hp +
+     '<br> attack: ' + jackAshum.pokemon1.attack + '<br> defense:' +
+     jackAshum.pokemon1.defense+ '<br> ability #1: ' +
+		 jackAshum.pokemon1.abilities[0]+ '<br> ability #2: ' +
+     jackAshum.pokemon1.abilities[1]+ ' ';
+		 document.getElementById("spriteFrame").src=jackAshum.pokemon1.sprite;
 		}
   }
-		xhttp.open("GET", 'https://pokeapi-nycda.firebaseio.com/pokemon/4.json', true);
+		xhttp.open("GET", 'https://raw.githubusercontent.com/Timberlee/pokemonAPI/master/mewtwo.txt', true);
 	 	xhttp.send();
-}
-/***july 19 2018 20:50 James is saying to put the assign function inside the info and (combined with appendChild?) can re-use the one function without needing a counter variable (no loop) at the end of the function
-//https://repl.it/@jamesscript7/FlawedRashTrust
-/*jackAshum.pokeballOne.name
-var pokemon = {};
-var name = "blastoise";
-pokemon.name = {};
-pokemon.name.hp = {};
-function pokemonGenerator(name,hp) {
-  pokemon.name = {};
-  pokemon.namehp = {};
-}
-*/
-function assignPoke1(name,hp,attack,defense,ability1,ability2){
-	jackAshum.pokemon1.name = name;
-	jackAshum.pokemon1.hp = hp;
-	jackAshum.pokemon1.attack = attack;
-	jackAshum.pokemon1.defense = defense;
-	jackAshum.pokemon1.abilities[0] = ability1;
-	jackAshum.pokemon1.abilities[1] = ability2
+    console.log('Pokemon 1 has loaded.');
 }
 
 
 //Second Pokemon
 var pokeballTwo = '';
-function pokeInfo2() {
+function retrievePokemon2() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -105,8 +111,9 @@ function pokeInfo2() {
 		 document.getElementById("spriteFrame").src = pokeballTwo.sprites.front_shiny;
 		}
   }
-		xhttp.open("GET", 'https://pokeapi-nycda.firebaseio.com/pokemon/5.json', true);
+		xhttp.open("GET", 'https://raw.githubusercontent.com/Timberlee/pokemonAPI/master/mewtwo.txt', true);
 	 	xhttp.send();
+    console.log('Pokemon 2 has loaded');
 }
 
 function assignPoke2(name,hp,attack,defense,ability1,ability2){
@@ -120,12 +127,13 @@ function assignPoke2(name,hp,attack,defense,ability1,ability2){
   var newTextNode = document.createTextNode('Pokemon info has loaded - ready to display!');
   newListItem.appendChild(newTextNode);
   document.getElementById('displayArea').appendChild(newParagraph);
+
 }
 
 
 //Third Pokemon
 var pokeballThree = '';
-function pokeInfo3() {
+function retrievePokemon3() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -136,44 +144,56 @@ function pokeInfo3() {
 		 pokeballThree.name + '<br> hp: ' + pokeballThree.stats[5].base_stat + '<br> attack: ' + pokeballThree.stats[4].base_stat + '<br> defense:' + pokeballThree.stats[3].base_stat + '<br> ability #1: ' +
 		 pokeballThree.abilities[0].ability.name + '<br> ability #2: ' + pokeballThree.abilities[1].ability.name + ' ';
 		 document.getElementById("spriteFrame").src = pokeballThree.sprites.front_shiny;
-     console.log('All pokemon have loaded.')
+
 
 		}
   }
-		xhttp.open("GET", 'https://pokeapi-nycda.firebaseio.com/pokemon/6.json', true);
+		xhttp.open("GET", 'https://raw.githubusercontent.com/Timberlee/pokemonAPI/master/mewtwo.txt', true);
 	 	xhttp.send();
-}
-function assignPoke3(name,hp,attack,defense,ability1,ability2){
-	jackAshum.pokemon2.name = name;
-	jackAshum.pokemon2.hp = hp;
-	jackAshum.pokemon2.attack = attack;
-	jackAshum.pokemon2.defense = defense;
-	jackAshum.pokemon2.abilities[0] = ability1;
-	jackAshum.pokemon2.abilities[1] = ability2
+    console.log('Pokemon 3 has loaded');
 }
 
 
-/*for (var i=0; i < 46; i +=4) {
+
+
+/*
+for (var i=0; i < 46; i +=4) {
 	document.getElementById(`box[${i}]`).src = pokeballOne.sprites.front_shiny;
 	document.getElementById(`box[${i + 1}]`).src = basket.sprites.back_shiny;
 	document.getElementById(`box[${i + 2}]`).src = basket.sprites.front_default;
 	document.getElementById(`box[${i + 3}]`).src = basket.sprites.back_default;
+}*/
+//Alternately, can name eveyr fourth box a different class.
+
+
+/*function battleScreen(){
+	var x = document.getElementsByTagName('BODY');
+	x.style.background-image=('battleScreen.png');
+
+}*/
+
+/***july 19 2018 20:50 James is saying to put the assign function inside the info function and (combined with appendChild?) can re-use the one function without needing a counter variable (no loop) at the end of the function
+//https://repl.it/@jamesscript7/FlawedRashTrust
+/*jackAshum.pokeballOne.name
+var pokemon = {};
+var name = "blastoise";
+pokemon.name = {};
+pokemon.name.hp = {};
+function pokemonGenerator(name,hp) {
+  pokemon.name = {};
+  pokemon.namehp = {};
+}
+My original, manually-entered function
+function assignPoke1(name,hp,attack,defense,ability1,ability2){
+	jackAshum.pokemon1.name = name;
+	jackAshum.pokemon1.hp = hp;
+	jackAshum.pokemon1.attack = attack;
+	jackAshum.pokemon1.defense = defense;
+	jackAshum.pokemon1.abilities[0] = ability1;
+	jackAshum.pokemon1.abilities[1] = ability2
 }
 */
 
-//Don't forget the modal!
-
-function clearPokeInfo(){
-	document.getElementById('receptacle').innerHTML = '';
-}
-function pokeParse(){
-}
-
-function battleScreen(){
-	var x = document.getElementsByTagName('BODY');
-	x.style.backgroundcolor=('red');
-
-}
 
 /*7/17/18 per ML: easier to call the api in its entirety, don't display it,
 then parse and choose what you want and display the relevant information
