@@ -261,3 +261,32 @@ u.onclick = function createButtonTwo(){
 //
 //
 // //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_img
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<link rel='stylesheet' type='text/css' href='main.css'>
+		<title>Personal Pokedex</title>
+	</head>
+	<body>
+		<div>
+			<button onclick='pokeInfo1()'>Get pokeInfo1</button>
+				<button onclick='displayPokeInfo()'>Diplay pokeInfo1</button>
+			<button onclick='pokeInfo2()'>Get pokeInfo2</button>
+				<button onclick='displayPokeInfo()'>Diplay pokeInfo2</button>
+			<button onclick='pokeInfo3()'>Get pokeInfo3</button>
+				<button onclick='displayPokeInfo()'>Diplay pokeInfo3</button>
+
+				<button onclick='clearPokeInfo()'>Clear pokeInfo</button>
+				<p id='displayArea'><p>
+
+				<img id="spriteFrame" alt="front_shiny"></img>
+			</div>
+			<script src='main.js'></script>
+	</body>
+</html>
+
+
