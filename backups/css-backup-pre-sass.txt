@@ -5,6 +5,17 @@
   grid-template-rows: repeat(8, 6.667%);
   grid-gap: 0px;
 }
+#banner {
+  background-color: grey;
+  align-self: start;
+  max-width: 12vw;
+}
+#displayArea {
+  background-color: grey;
+}
+#spriteFrame {
+  background-color: grey;
+}
 
 .grid-item img {
   max-height: 100%;
@@ -37,4 +48,3 @@
 }
 
 /* https://codeburst.io/tutorial-make-a-bouncing-ball-entirely-with-css-1e7e3c853a50 */
-

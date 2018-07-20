@@ -78,7 +78,8 @@ function retrievePokemon1(){
 		 document.getElementById("spriteFrame").src=jackAshum.pokemon1.sprite;
 		}
   }
-		xhttp.open("GET", 'https://raw.githubusercontent.com/Timberlee/pokemonAPI/master/mewtwo.txt', true);
+    xhttp.open("GET", 'https://pokeapi.co/api/v2/pokemon/150/', true);
+		// xhttp.open("GET", 'https://raw.githubusercontent.com/Timberlee/pokemonAPI/master/mewtwo.txt', true);
 	 	xhttp.send();
     console.log('Pokemon 1 has loaded.');
 }
@@ -111,10 +112,12 @@ function retrievePokemon2() {
 		 document.getElementById("spriteFrame").src = pokeballTwo.sprites.front_shiny;
 		}
   }
-		xhttp.open("GET", 'https://raw.githubusercontent.com/Timberlee/pokemonAPI/master/mewtwo.txt', true);
+    xhttp.open("GET", 'https://pokeapi.co/api/v2/pokemon/136/', true);
+		// xhttp.open("GET", 'https://raw.githubusercontent.com/Timberlee/pokemonAPI/master/flareon.txt', true);
 	 	xhttp.send();
     console.log('Pokemon 2 has loaded');
 }
+
 
 function assignPoke2(name,hp,attack,defense,ability1,ability2){
 	jackAshum.pokemon2.name = name;
@@ -139,16 +142,28 @@ function retrievePokemon3() {
     if (this.readyState == 4 && this.status == 200) {
 		 pokeballThree = JSON.parse(this.responseText);
 		 console.log(pokeballThree);
-		 // document.getElementById('receptacle').innerHTML = pokeballThree["name"] + pokeballThree["height"] + pokeballThree["stats"];
-		 document.getElementById('displayArea').innerHTML = 'Pokemon: ' +
-		 pokeballThree.name + '<br> hp: ' + pokeballThree.stats[5].base_stat + '<br> attack: ' + pokeballThree.stats[4].base_stat + '<br> defense:' + pokeballThree.stats[3].base_stat + '<br> ability #1: ' +
-		 pokeballThree.abilities[0].ability.name + '<br> ability #2: ' + pokeballThree.abilities[1].ability.name + ' ';
-		 document.getElementById("spriteFrame").src = pokeballThree.sprites.front_shiny;
 
+     jackAshum.pokemon3.name = pokeballThree.name;
+     jackAshum.pokemon3.hp = pokeballThree.stats[5].base_stat;
+   	 jackAshum.pokemon3.attack = pokeballThree.stats[4].base_stat;
+   	 jackAshum.pokemon3.defense = pokeballThree.stats[3].base_stat;
+   	 jackAshum.pokemon3.abilities[0] = pokeballThree.abilities[0].ability.name;
+   	 jackAshum.pokemon3.abilities[1] = pokeballThree.abilities[1].ability.name;
+     jackAshum.pokemon3.sprite = pokeballThree.sprites.front_shiny;
+
+     document.getElementById('displayArea').innerHTML = 'Pokemon: ' +
+		 jackAshum.pokemon3.name +
+     '<br> hp: ' + jackAshum.pokemon3.hp +
+     '<br> attack: ' + jackAshum.pokemon3.attack +
+     '<br> defense:' + jackAshum.pokemon3.defense +
+     '<br> ability #1: ' + jackAshum.pokemon3.abilities[0] +
+     '<br> ability #2: ' + jackAshum.pokemon3.abilities[1] + ' ';
+		 document.getElementById("spriteFrame").src = pokeballThree.sprites.front_shiny;
 
 		}
   }
-		xhttp.open("GET", 'https://raw.githubusercontent.com/Timberlee/pokemonAPI/master/mewtwo.txt', true);
+    xhttp.open("GET", 'https://pokeapi.co/api/v2/pokemon/78/', true);
+		// xhttp.open("GET", 'https://raw.githubusercontent.com/Timberlee/pokemonAPI/master/rapidash.txt', true);
 	 	xhttp.send();
     console.log('Pokemon 3 has loaded');
 }
@@ -163,12 +178,13 @@ for (var i=0; i < 46; i +=4) {
 	document.getElementById(`box[${i + 2}]`).src = basket.sprites.front_default;
 	document.getElementById(`box[${i + 3}]`).src = basket.sprites.back_default;
 }*/
-//Alternately, can name eveyr fourth box a different class.
+//Alternately, can name every fourth box a different class.
+//Likewise, dynamically get the length of the number of boxes
 
 
 /*function battleScreen(){
 	var x = document.getElementsByTagName('BODY');
-	x.style.background-image=('battleScreen.png');
+	x.style.background-image=('battleScreen.jpeg');
 
 }*/
 

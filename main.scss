@@ -3,29 +3,34 @@
   height: 100vw;
   grid-template-columns: repeat(15, 6.667%);
   grid-template-rows: repeat(8, 6.667%);
-  grid-gap: 0px; }
+  grid-gap: 0px;
+}
 
 #banner {
   background-color: white;
   align-self: start;
-  max-width: 12vw; }
+  max-width: 12vw;
+}
 
-#displayArea, #spriteFrame {
-  background-color: grey; }
+#displayArea, #spriteFrame, {
+  background-color: grey;
+}
 
 .grid-item img {
   max-height: 100%;
-  max-width: 100%; }
+  max-width: 100%;
+}
 
 .grid-area {
   grid-area: 2/2/8/15;
-  background-image: url("images/triArena.png");
+  background-image: url('images/triArena.png');
   /* Source: https://cdn.bulbagarden.net/upload/7/7a/SGF_appeal_stage.png via https://www.chickensmoothie.com/Forum/viewtopic.php?f=28&t=1727346*/
   background-size: cover;
   /* background-repeat: no-repeat; */
   display: flex;
   justify-content: space-around;
-  align-items: center; }
+  align-items: center;
+}
 
 .ballz {
   width: 10vw;
@@ -34,12 +39,13 @@
   transition: 1s;
   animation-iteration-count: 3;
   /*this gives some interesting behavior...*/
-  /* animation-timing-function: cubic-bezier(.1,.67,.88,.34); */ }
-  .ballz:hover {
+  /* animation-timing-function: cubic-bezier(.1,.67,.88,.34); */
+  &:hover {
     -webkit-transform: rotate(360deg);
-    transition: 1s; }
+    transition: 1s;
+  }
+}
 
 /*Don't forget the modal!*/
-/* https://codeburst.io/tutorial-make-a-bouncing-ball-entirely-with-css-1e7e3c853a50 */
 
-/*# sourceMappingURL=main.css.map */
+/* https://codeburst.io/tutorial-make-a-bouncing-ball-entirely-with-css-1e7e3c853a50 */
