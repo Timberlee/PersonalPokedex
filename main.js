@@ -31,10 +31,11 @@ jackAshum = {
  },
 
    all: function(){
-     console.log(this.pokemon1.name, this.pokemon2.name, this.pokemon3.name);
+     var pokeArray = [this.pokemon1.name, this.pokemon2.name, this.pokemon3.name];
+     console.log(pokeArray);
    },
    get: function(name){
-     console.log(this.name.name);
+     console.log(jackAshum.name);
 
    }
 
@@ -86,6 +87,7 @@ function pokeInfo2() {
     if (this.readyState == 4 && this.status == 200) {
 		 pokeballTwo = JSON.parse(this.responseText);
 		 console.log(pokeballTwo);
+
      jackAshum.pokemon2.name = pokeballTwo.name;
      jackAshum.pokemon2.hp = pokeballTwo.stats[5].base_stat;
    	 jackAshum.pokemon2.attack = pokeballTwo.stats[4].base_stat;
