@@ -1,11 +1,3 @@
-/*Holy shit, the exact exercise ML lead us through THIS VERY AFTERNOON BEFORE WE
-ADJOURNED is what I could have used here. Create a button dynamically that can
-then do other things, as buttons should.*/
-/* ***NOTE: IF THERE IS A NUMBER AS A KEY NAME, IT MAY ACTUALLY BE AN ARRAY INDEX OF THE KEY NAME THAT COMES BEFORE IT - PAY ATTENTION TO BRACKETS */
-/* button load info - after a delay, flash all the stats one by one*/
-  //xhttp.open("GET", 'https://pokeapi.co/api/v2/pokemon/4/', true);
-/*Note: savagely violating the single-use principle is not a basis for point-deduciton, per the non-existence in the assignment of any such specification.*/
-/*Note: Would be dope to fill the border grid-items with the sprite upon loading*/
 jackAshum = {
 
    pokemon1: {
@@ -36,13 +28,20 @@ jackAshum = {
    },
    get: function(name){
      console.log(jackAshum.name);
-
    }
-
+   // function getEm(){
+   //   var pokeArray = [];
+   //   for (items in jackAshum){
+   //     pokeArray.push(item);
+   //   }
+   //   return pokeArray;
+   //   console.log(pokeArray);
+   // }
+  
 }
 //First Pokemon
 var pokeballOne = '';
-function pokeInfo1() {
+function pokeInfo1(){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -137,7 +136,7 @@ function pokeInfo3() {
 		 pokeballThree.name + '<br> hp: ' + pokeballThree.stats[5].base_stat + '<br> attack: ' + pokeballThree.stats[4].base_stat + '<br> defense:' + pokeballThree.stats[3].base_stat + '<br> ability #1: ' +
 		 pokeballThree.abilities[0].ability.name + '<br> ability #2: ' + pokeballThree.abilities[1].ability.name + ' ';
 		 document.getElementById("spriteFrame").src = pokeballThree.sprites.front_shiny;
-     console.log('All pokemon have loaded.'
+     console.log('All pokemon have loaded.')
 
 		}
   }
@@ -161,56 +160,6 @@ function assignPoke3(name,hp,attack,defense,ability1,ability2){
 	document.getElementById(`box[${i + 3}]`).src = basket.sprites.back_default;
 }
 */
-
-// 	function all(){
-// 		var pokeArray = [];
-// 		for (items in jackAshum){
-// 			pokeArray.push(item);
-// 		}
-// 		return pokeArray;
-// 		console.log(pokeArray);
-// 	}
-// }
-/*
-var basket2 = '';
-function pokeInfo2() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-
-		 basket2 = JSON.parse(this.responseText);
-		 // document.getElementById('receptacle').innerHTML = basket["name"] + basket["height"] + basket["stats"];
-		 document.getElementById("receptacle").innerHTML =
-		 basket2.name + ' weight: ' + basket2.weight + ' ' +
-		 basket2.stats[0].stat.name + ': ' + basket2.stats[0].base_stat + ' ';
-		 document.getElementById("spriteFrame").src = basket2.sprites.front_shiny;
-		}
-  };
-		xhttp.open("GET", 'https://pokeapi-nycda.firebaseio.com/pokemon/5.json', true);
-	 	xhttp.send();
-}
-
-var basket3 = '';
-function pokeInfo3() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-
-		 basket3 = JSON.parse(this.responseText);
-		 // document.getElementById('receptacle').innerHTML = basket["name"] + basket["height"] + basket["stats"];
-		 document.getElementById("receptacle").innerHTML =
-		 basket3.name + ' weight: ' + basket3.weight + ' ' +
-		 basket3.stats[0].stat.name + ': ' + basket3.stats[0].base_stat + ' ';
-		 document.getElementById("spriteFrame").src = basket3.sprites.front_shiny;
-		}
-  };
-		xhttp.open("GET", 'https://pokeapi-nycda.firebaseio.com/pokemon/6.json', true);
-	 	xhttp.send();
-}
-*/
-
-function displayPokeInfo1(){
-	}
 
 //Don't forget the modal!
 
