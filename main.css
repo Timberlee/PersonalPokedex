@@ -5,13 +5,17 @@
   grid-template-rows: repeat(8, 6.667%);
   grid-gap: 0px; }
 
-#banner {
+#instructions {
   background-color: white;
   align-self: start;
   max-width: 12vw; }
 
-#displayArea, #spriteFrame {
-  background-color: grey; }
+#descriptionArea1, #descriptionArea2, #descriptionArea3, #spriteFrame1, #spriteFrame2, #spriteFrame3 {
+  background-color: #FFFF66;
+  max-width: 100%;
+  max-height: 100%;
+  font: LMS PokeDex;
+}
 
 .grid-item img {
   max-height: 100%;
@@ -21,23 +25,56 @@
   grid-area: 2/2/8/15;
   background-image: url("images/triArena.png");
   /* Source: https://cdn.bulbagarden.net/upload/7/7a/SGF_appeal_stage.png via https://www.chickensmoothie.com/Forum/viewtopic.php?f=28&t=1727346*/
-  background-size: cover;
+  background-size: 102% 100%;
+
   /* background-repeat: no-repeat; */
   display: flex;
   justify-content: space-around;
-  align-items: center; }
+  align-items: center;
+  flex-wrap: wrap;
+}
 
+#jumboTron {
+  align-self: start;
+  margin: 0 auto 0 auto;
+  height: 20%;
+  width: 50%;
+  /* background-color: yellow; */
+  display: flex;
+  justify-content: space-around;
+}
+#pokeBallArea {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: end;
+}
 .ballz {
+  margin: 0 0 5% 0;
   width: 10vw;
   height: 10vw;
-  /* animation: bounce 1000ms; */
+  animation: bounce 1000ms;
   transition: 1s;
-  animation-iteration-count: 3;
+  /* animation-iteration-count: 3; */
   /*this gives some interesting behavior...*/
   /* animation-timing-function: cubic-bezier(.1,.67,.88,.34); */ }
   .ballz:hover {
     -webkit-transform: rotate(360deg);
     transition: 1s; }
+    #ball2 {
+      margin: 5% 0 0 0
+    }
+.ballSacks {
+  display: flex;
+  height: 30vw;
+  width: 20vw;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  /* background-color: grey; */
+  margin: 0 0 0 0;
+}
+
 
 /*Don't forget the modal!*/
 /* https://codeburst.io/tutorial-make-a-bouncing-ball-entirely-with-css-1e7e3c853a50 */

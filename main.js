@@ -1,5 +1,5 @@
 jackAshum = {
-  myPokemon: {  },
+  // myPokemon: {  }, Sam's suggestion 7/20 for the get method
    pokemon1: {
    name: 'pokename1',
    hp: 1,
@@ -27,31 +27,23 @@ jackAshum = {
      console.log(pokeArray);
    },
 
-   get: function(inputName){
-     let pokeArray= []
-     for (item in jackAshum){
-         pokeArray.push(item);
-       }
-       if (inputName === pokeArray[0].name){
-         console.log(pokeArray[0].name);
-       }else if (inputName === pokeArray[1].name){
-         console.log(pokeArray[1]);
-       }else if(inputName === pokeArray[2].name){
-         console.log(pokeArray[2]);
-       }else{
-         console.log('Pokemon not found.');
-       }
-
-   }
-   // function getEm(){
-   //   var pokeArray = [];
-   //   for (items in jackAshum){
-   //     pokeArray.push(item);
-   //   }
-   //   return pokeArray;
-   //   console.log(pokeArray);
-   // }
+   get: function() {
+     alert('fuck');
+     var userInput = prompt("Enter a Pokemon name to search and return information from trainer inventory. no caps. no spaces. no emojis.");
+     if (userInput == jackAshum.pokemon1.name){
+       for(property in jackAshum.pokemon1){
+         alert(jackAshum.pokemon1.hasOwnProperty(property));
+     // } else {
+     //   alert('buttholes');
+     }
+    }
 }
+}
+
+
+
+
+
 
 //First Pokemon
 var pokeballOne = '';
@@ -69,20 +61,52 @@ function retrievePokemon1(){
      jackAshum.pokemon1.abilities[1] = pokeballOne.abilities[1].ability.name;
      jackAshum.pokemon1.sprite = pokeballOne.sprites.front_shiny;
 
-		 document.getElementById('displayArea').innerHTML = 'Pokemon: ' +
+		 document.getElementById('descriptionArea1').innerHTML = 'Pokemon: ' +
 		 jackAshum.pokemon1.name + '<br> hp: ' + jackAshum.pokemon1.hp +
      '<br> attack: ' + jackAshum.pokemon1.attack + '<br> defense:' +
      jackAshum.pokemon1.defense+ '<br> ability #1: ' +
 		 jackAshum.pokemon1.abilities[0]+ '<br> ability #2: ' +
      jackAshum.pokemon1.abilities[1]+ ' ';
-		 document.getElementById("spriteFrame").src=jackAshum.pokemon1.sprite;
-		}
+		 document.getElementById("spriteFrame1").src=jackAshum.pokemon1.sprite;
+     // document.getElementById("jumboTron").src=jackAshum.pokemon1.sprite;
+
+     }
   }
-    xhttp.open("GET", 'https://pokeapi.co/api/v2/pokemon/150/', true);
-		// xhttp.open("GET", 'https://raw.githubusercontent.com/Timberlee/pokemonAPI/master/mewtwo.txt', true);
+    // xhttp.open("GET", 'https://pokeapi.co/api/v2/pokemon/150/', true);
+		xhttp.open("GET", 'https://raw.githubusercontent.com/Timberlee/pokemonAPI/master/mewtwo.txt', true);
 	 	xhttp.send();
+    function displaySprite(){
+        var icon = document.createElement('IMG');
+        icon.setAttribute('src', pokeballOne.sprites.front_shiny);
+        icon.setAttribute('background-color', 'green');
+        icon.setAttribute('height', '320');
+        icon.setAttribute('width', '320');
+        icon.setAttribute('alt', 'sprite should load here');
+        document.getElementById('jumboTron').appendChild(icon);
+    }
+
     console.log('Pokemon 1 has loaded.');
 }
+
+
+
+
+// function myButton() {
+//     var btn = document.createElement("BUTTON");
+//     var t = document.createTextNode("CLICK ME");
+//     btn.appendChild(src=);
+//     document.body.appendChild(btn);
+// }
+//
+// function myFunction() {
+//     var x = document.createElement("IMG");
+//     x.setAttribute("src", "img_pulpit.jpg");
+//     x.setAttribute("width", "304");
+//     x.setAttribute("height", "228");
+//     x.setAttribute("alt", "The Pulpit Rock");
+//     document.body.appendChild(x);
+// }
+
 
 
 //Second Pokemon
@@ -102,18 +126,18 @@ function retrievePokemon2() {
    	 jackAshum.pokemon2.abilities[1] = pokeballTwo.abilities[1].ability.name;
      jackAshum.pokemon2.sprite = pokeballTwo.sprites.front_shiny;
 
-		 document.getElementById('displayArea').innerHTML = 'Pokemon: ' +
+		 document.getElementById('descriptionArea2').innerHTML = 'Pokemon: ' +
 		 jackAshum.pokemon2.name +
      '<br> hp: ' + jackAshum.pokemon2.hp +
      '<br> attack: ' + jackAshum.pokemon2.attack +
      '<br> defense:' + jackAshum.pokemon2.defense +
      '<br> ability #1: ' + jackAshum.pokemon2.abilities[0] +
      '<br> ability #2: ' + jackAshum.pokemon2.abilities[1] + ' ';
-		 document.getElementById("spriteFrame").src = pokeballTwo.sprites.front_shiny;
+		 document.getElementById("spriteFrame2").src = pokeballTwo.sprites.front_shiny;
 		}
   }
-    xhttp.open("GET", 'https://pokeapi.co/api/v2/pokemon/136/', true);
-		// xhttp.open("GET", 'https://raw.githubusercontent.com/Timberlee/pokemonAPI/master/flareon.txt', true);
+    // xhttp.open("GET", 'https://pokeapi.co/api/v2/pokemon/136/', true);
+		xhttp.open("GET", 'https://raw.githubusercontent.com/Timberlee/pokemonAPI/master/flareon.txt', true);
 	 	xhttp.send();
     console.log('Pokemon 2 has loaded');
 }
@@ -129,7 +153,7 @@ function assignPoke2(name,hp,attack,defense,ability1,ability2){
   var newParagraph = document.createElement("P");
   var newTextNode = document.createTextNode('Pokemon info has loaded - ready to display!');
   newListItem.appendChild(newTextNode);
-  document.getElementById('displayArea').appendChild(newParagraph);
+  document.getElementById('descriptionArea2').appendChild(newParagraph);
 
 }
 
@@ -151,19 +175,19 @@ function retrievePokemon3() {
    	 jackAshum.pokemon3.abilities[1] = pokeballThree.abilities[1].ability.name;
      jackAshum.pokemon3.sprite = pokeballThree.sprites.front_shiny;
 
-     document.getElementById('displayArea').innerHTML = 'Pokemon: ' +
+     document.getElementById('descriptionArea3').innerHTML = 'Pokemon: ' +
 		 jackAshum.pokemon3.name +
      '<br> hp: ' + jackAshum.pokemon3.hp +
      '<br> attack: ' + jackAshum.pokemon3.attack +
      '<br> defense:' + jackAshum.pokemon3.defense +
      '<br> ability #1: ' + jackAshum.pokemon3.abilities[0] +
      '<br> ability #2: ' + jackAshum.pokemon3.abilities[1] + ' ';
-		 document.getElementById("spriteFrame").src = pokeballThree.sprites.front_shiny;
+		 document.getElementById("spriteFrame3").src = pokeballThree.sprites.front_shiny;
 
 		}
   }
-    xhttp.open("GET", 'https://pokeapi.co/api/v2/pokemon/78/', true);
-		// xhttp.open("GET", 'https://raw.githubusercontent.com/Timberlee/pokemonAPI/master/rapidash.txt', true);
+    // xhttp.open("GET", 'https://pokeapi.co/api/v2/pokemon/78/', true);
+		xhttp.open("GET", 'https://raw.githubusercontent.com/Timberlee/pokemonAPI/master/rapidash.txt', true);
 	 	xhttp.send();
     console.log('Pokemon 3 has loaded');
 }
