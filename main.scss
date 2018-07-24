@@ -1,19 +1,31 @@
+$display-bg-color: rgba(0, 0, 0, .3);
+$text-color: #fff;
+$main-color: #fff;
+$display-font: 25px;
+
+body {
+  font-family: 'Do Hyeon', sans-serif;
+}
+
 .grid-container {
   display: grid;
   height: 100vw;
   grid-template-columns: repeat(15, 6.667%);
   grid-template-rows: repeat(8, 6.667%);
-  grid-gap: 0px;
 }
 
 #banner {
-  background-color: white;
+  background-color: $display-bg-color;
+  color: $text-color;
   align-self: start;
   max-width: 12vw;
+  font-size: $display-font;
+  padding: 20px;
 }
 
 #displayArea, #spriteFrame, {
-  background-color: grey;
+  background-color: $display-bg-color;
+  color: $text-color;
 }
 
 .grid-item img {

@@ -1,17 +1,23 @@
+body {
+  font-family: 'Do Hyeon', sans-serif; }
+
 .grid-container {
   display: grid;
   height: 100vw;
   grid-template-columns: repeat(15, 6.667%);
-  grid-template-rows: repeat(8, 6.667%);
-  grid-gap: 0px; }
+  grid-template-rows: repeat(8, 6.667%); }
 
 #banner {
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
   align-self: start;
-  max-width: 12vw; }
+  max-width: 12vw;
+  font-size: 25px;
+  padding: 20px; }
 
 #displayArea, #spriteFrame {
-  background-color: grey; }
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff; }
 
 .grid-item img {
   max-height: 100%;
