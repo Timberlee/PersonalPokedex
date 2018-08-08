@@ -1,0 +1,1 @@
+The goal of this Personal Pokedex project is to stylize a page with one's own take on a Pokemon theme, while calling the stats of specific Pokemon from an API, storing the values in a Pokemon Trainer object, and displaying them on screen.
